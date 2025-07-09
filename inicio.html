@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio — AppFix</title>
+  <style>
+    /* Estilos del encabezado */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #f0f0f0;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+    header nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 1em;
+      transition: 0.3s;
+    }
+    header nav a:hover {
+      color: #00ff99;
+    }
+
+    /* Estilos existentes de inicio.html */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Landscape', sans-serif;
+      background-color: #121212;
+      background-image: repeating-linear-gradient(
+        135deg,
+        rgba(0, 255, 153, 0.05),
+        rgba(0, 255, 153, 0.05) 2px,
+        transparent 2px,
+        transparent 20px
+      );
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 60px 20px; /* Ajustado para dejar espacio al encabezado fijo */
+      padding-top: 100px; /* Espacio adicional para que el contenido no quede debajo del header */
+      text-align: center;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+    h1 {
+      color: #00ff99;
+      font-size: 3em;
+      margin-bottom: 0.3em;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+    }
+    .opciones {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+    .boton {
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 2px solid #00ff99;
+      border-radius: 12px;
+      padding: 20px;
+      font-size: 1.2em;
+      color: #f0f0f0;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .boton:hover {
+      background-color: #00ff99;
+      color: #121212;
+    }
+    .fade-out {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div style="font-size: 1.4em; font-weight: bold; color: #00ff99;">
+      AppFix 📱
+    </div>
+    <nav>
+      <a href="appfix.html#sobre-nosotros">Sobre Nosotros</a>
+      <a href="#inicio-sesion">Inicio de sesión</a>
+    </nav>
+  </header>
+
+  <h1>Bienvenido a AppFix 📱</h1>
+  <p>Elige una opción para empezar:</p>
+
+  <div class="opciones">
+    <a href="apps-compatibles.html" class="boton">📱 Ver Apps Compatibles</a>
+    <a href="#" class="boton">🎮 Juegos Clásicos</a>
+    <a href="#" class="boton">🛠️ Guías y Trucos</a>
+    <a href="appfix.html" class="boton">🔙 Volver al Inicio</a>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll('.boton, header nav a'); // Incluye los enlaces del header
+
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        // Previene la acción por defecto solo si el href no es un ancla interna dentro de la misma página
+        const destino = this.getAttribute('href');
+        if (destino.startsWith('#') && destino !== '#inicio-sesion') { // No aplicar fade-out si es ancla en la misma página (ej. #inicio-sesion)
+          return;
+        }
+        
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = destino;
+        }, 500);
+      });
+    });
+  </script>
+
+</body>
+</html>

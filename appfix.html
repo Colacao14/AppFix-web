@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AppFix — Optimiza tu celular viejo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    html {
+      scroll-padding-top: 80px;
+    }
+    body {
+      font-family: 'Landscape', sans-serif;
+      background-color: #121212;
+      background-image: repeating-linear-gradient(
+        135deg,
+        rgba(0, 255, 153, 0.05),
+        rgba(0, 255, 153, 0.05) 2px,
+        transparent 2px,
+        transparent 20px
+      );
+      color: #f0f0f0;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #f0f0f0;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+    header nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 1em;
+      transition: 0.3s;
+    }
+    header nav a:hover {
+      color: #00ff99;
+    }
+    .pantalla-inicio {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+      color: #00ff99;
+      transform: translateX(30px);
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+    }
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #00ff99;
+      color: #121212;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+      margin: 10px;
+    }
+    .button:hover {
+      background-color: #00cc77;
+    }
+    #sobre-nosotros {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 50px auto;
+    }
+    #sobre-nosotros h2 {
+      color: #00ff99;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    #sobre-nosotros p {
+      margin-bottom: 20px;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+    .tarjeta {
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .tarjeta p {
+      margin: 10px 0 0;
+    }
+    .fade-out {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO FIJO -->
+  <header>
+    <div style="font-size: 1.4em; font-weight: bold; color: #00ff99;">
+      AppFix 📱
+    </div>
+    <nav>
+      <a href="#sobre-nosotros">Sobre Nosotros</a>
+      <a href="#inicio-sesion">Inicio de sesión</a>
+    </nav>
+  </header>
+
+  <div class="pantalla-inicio">
+    <h1>AppFix 📱</h1>
+    <p>Resucita y optimiza tu celular viejo con nuestras guías y apps compatibles.</p>
+    <a href="inicio.html" class="button">Entrar</a>
+  </div>
+
+  <!-- SECCIÓN SOBRE NOSOTROS -->
+  <div id="sobre-nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>AppFix es mucho más que una aplicación o una simple herramienta de mantenimiento: es una comunidad creada para usuarios de Android y iPhone que enfrentan problemas con sus aplicaciones y videojuegos móviles. Nuestro proyecto nace de una necesidad real que comparten millones de personas: encontrar alternativas, versiones antiguas, soluciones y recomendaciones cuando una app deja de funcionar o se vuelve incompatible con su dispositivo.</p>
+
+    <div class="tarjeta">
+      📲 <strong>Encontrar Alternativas Funcionales:</strong>
+      <p>Te recomendamos aplicaciones similares a las que ya no funcionan en tu dispositivo, ya sea por versión de Android, iOS o incompatibilidad con tu modelo de teléfono.</p>
+    </div>
+
+    <div class="tarjeta">
+      📦 <strong>Acceder a Versiones Anteriores de Apps:</strong>
+      <p>Descubre qué versión de una aplicación sigue siendo estable y compatible con tu teléfono, y accede a tutoriales para su descarga e instalación segura.</p>
+    </div>
+
+    <div class="tarjeta">
+      🕹️ <strong>Participar en Foros de Videojuegos Móviles:</strong>
+      <p>Comparte tus dudas, descubre trucos, soluciones a errores de instalación o compatibilidad y revive juegos clásicos que ya no están disponibles en las tiendas oficiales.</p>
+    </div>
+
+    <div class="tarjeta">
+      📝 <strong>Debatir sobre Actualizaciones de Apps:</strong>
+      <p>Opina junto a otros usuarios sobre las nuevas versiones de tus aplicaciones favoritas, comenta sus fallos, mejoras o retrocesos, y recibe recomendaciones basadas en experiencias reales.</p>
+    </div>
+
+    <div class="tarjeta">
+      🔧 <strong>Resolver Problemas de Instalación y Funcionamiento:</strong>
+      <p>Si una aplicación se cierra, no abre o no se puede instalar, encontrarás guías, consejos de la comunidad y soluciones adaptadas a tu modelo de teléfono y versión de sistema operativo.</p>
+    </div>
+
+    <div class="tarjeta">
+      📰 <strong>Recibir Noticias de Software Móvil:</strong>
+      <p>Mantente al día con las novedades, retiros de apps, nuevas versiones importantes y avisos sobre compatibilidad.</p>
+    </div>
+
+    <div class="tarjeta">
+      🔒 <strong>Acceder a una Comunidad Segura y Moderada:</strong>
+      <p>Todos los aportes pasan por revisión para evitar contenido malicioso y asegurar que las soluciones propuestas sean seguras y funcionales.</p>
+    </div>
+
+    <p>AppFix no pretende competir con las tiendas oficiales, sino ofrecer una alternativa responsable y colaborativa para aquellos casos donde el usuario queda sin opciones. Creemos en el valor de las comunidades digitales y en el poder del conocimiento compartido para resolver problemas cotidianos que, aunque pequeños, pueden afectar la experiencia móvil de cualquier persona.</p>
+
+    <p style="font-weight: bold; color: #00ff99;">Aquí no importa si eres experto en tecnología o un usuario promedio: todos pueden compartir, aprender y aportar a una comunidad que prioriza la accesibilidad y la buena experiencia móvil.</p>
+
+  </div>
+
+  <script>
+    const botones = document.querySelectorAll('.button');
+
+    botones.forEach(boton => {
+      boton.addEventListener('click', function(e) {
+        e.preventDefault();
+        const destino = this.getAttribute('href');
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = destino;
+        }, 500);
+      });
+    });
+  </script>
+
+</body>
+</html>
