@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AppFix — Optimiza tu celular viejo</title>
   <style>
+    /* ... (tu CSS existente para header y body) ... */
     * {
       margin: 0;
       padding: 0;
@@ -25,7 +26,7 @@
         transparent 20px
       );
       color: #f0f0f0;
-      opacity: 1;
+      opacity: 1; /* Asegúrate de que la opacidad inicial sea 1 */
       transition: opacity 0.5s ease;
     }
     header {
@@ -114,7 +115,6 @@
 </head>
 <body>
 
-  <!-- ENCABEZADO FIJO -->
   <header>
     <div style="font-size: 1.4em; font-weight: bold; color: #00ff99;">
       AppFix 📱
@@ -131,10 +131,9 @@
     <a href="inicio.html" class="button">Entrar</a>
   </div>
 
-  <!-- SECCIÓN SOBRE NOSOTROS -->
   <div id="sobre-nosotros">
     <h2>Sobre Nosotros</h2>
-    <p>AppFix es mucho más que una simple herramienta de mantenimiento: es una comunidad creada para usuarios de Android y iPhone que enfrentan problemas con sus aplicaciones y videojuegos móviles. Nuestro proyecto nace de una necesidad real que comparten millones de personas: encontrar alternativas, versiones antiguas, soluciones y recomendaciones cuando una app deja de funcionar o se vuelve incompatible con su dispositivo.</p>
+    <p>AppFix es mucho más que una aplicación o una simple herramienta de mantenimiento: es una comunidad creada para usuarios de Android y iPhone que enfrentan problemas con sus aplicaciones y videojuegos móviles. Nuestro proyecto nace de una necesidad real que comparten millones de personas: encontrar alternativas, versiones antiguas, soluciones y recomendaciones cuando una app deja de funcionar o se vuelve incompatible con su dispositivo.</p>
 
     <div class="tarjeta">
       📲 <strong>Encontrar Alternativas Funcionales:</strong>
@@ -178,16 +177,25 @@
   </div>
 
   <script>
-    const botones = document.querySelectorAll('.button');
+    // IMPORTANTE: Asegura que la página sea visible al cargar o al retroceder
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.remove('fade-out');
+    });
+
+    const botones = document.querySelectorAll('.button, header nav a');
 
     botones.forEach(boton => {
       boton.addEventListener('click', function(e) {
-        e.preventDefault();
         const destino = this.getAttribute('href');
-        document.body.classList.add('fade-out');
-        setTimeout(() => {
-          window.location.href = destino;
-        }, 500);
+
+        // Solo prevenir el default y aplicar fade-out si no es un ancla interna o si la navegación es a otra página
+        if (!destino.startsWith('#') || destino === '#inicio-sesion') { // Mantén #inicio-sesion como antes para posible página
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => {
+            window.location.href = destino;
+          }, 500);
+        }
       });
     });
   </script>
