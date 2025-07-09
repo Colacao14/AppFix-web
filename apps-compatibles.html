@@ -49,7 +49,7 @@
       padding: 40px 20px; /* Ajustado para dejar espacio al encabezado fijo */
       padding-top: 100px; /* Espacio adicional para que el contenido no quede debajo del header */
       text-align: center;
-      opacity: 1;
+      opacity: 1; /* Asegúrate de que la opacidad inicial sea 1 */
       transition: opacity 0.5s ease;
     }
     h1 {
@@ -147,21 +147,25 @@
   <a href="inicio.html" class="volver">🔙 Volver al Menú</a>
 
   <script>
-    const links = document.querySelectorAll('.descargar-btn, .volver, header nav a'); // Incluye los enlaces del header
+    // IMPORTANTE: Asegura que la página sea visible al cargar o al retroceder
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.remove('fade-out');
+    });
+
+    const links = document.querySelectorAll('.descargar-btn, .volver, header nav a');
 
     links.forEach(link => {
       link.addEventListener('click', function(e) {
-        // Previene la acción por defecto solo si el href no es un ancla interna dentro de la misma página
         const destino = this.getAttribute('href');
-        if (destino.startsWith('#') && destino !== '#inicio-sesion') { // No aplicar fade-out si es ancla en la misma página (ej. #inicio-sesion)
-          return;
-        }
 
-        e.preventDefault();
-        document.body.classList.add('fade-out');
-        setTimeout(() => {
-          window.location.href = destino;
-        }, 500);
+        // Solo prevenir el default y aplicar fade-out si no es un ancla interna o si la navegación es a otra página
+        if (!destino.startsWith('#') || destino === '#inicio-sesion') { // Mantén #inicio-sesion como antes para posible página
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => {
+            window.location.href = destino;
+          }, 500);
+        }
       });
     });
   </script>
